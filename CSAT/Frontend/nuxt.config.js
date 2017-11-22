@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'csat frontend' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '//fonts.googleapis.com/icon?family=Material+Icons' }
     ]
   },
 
@@ -32,6 +33,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    extractCSS: true
   },
   /**
    * Axios config
