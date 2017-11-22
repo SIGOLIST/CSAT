@@ -13,26 +13,30 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  /**
+   * Plugins setup
+   */
+  plugins: ['~plugins/buefy'],
+  /**
+   * Module config
+   */
+  modules: [
+    '@nuxtjs/axios',
+  ],
   /*
   ** Build configuration
   */
   build: {
-    /*
-    ** Run ESLint on save
-    */
-    extend (config, ctx) {
-      if (ctx.dev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+  },
+  /**
+   * Axios config
+   */
+  axios: {
+    // proxyHeaders: false
   }
 }
