@@ -1,4 +1,4 @@
 export class Shared {
-    static API_URL = '/api/v1/'
-    static HOST_URL = 'www.domain.com'
+    static API_URL: string = '/api/v1/'
+    static HOST_URL: string = 'www.domain.com'
 }
