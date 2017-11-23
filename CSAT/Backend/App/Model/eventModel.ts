@@ -1,17 +1,21 @@
-import { Model, Document, model, Schema, createConnection } from 'mongoose'
+import { model, Schema, createConnection } from 'mongoose'
 import * as increment from 'mongoose-auto-increment'
 
 // let connection = createConnection(process.env.MONGO_URL)
 // increment.initialize(connection)
 
-export interface EventObject extends Document {
-    title?: string,
-    item?: string,
-    description?: string,
-    location?: { city: string, district: string },
-    url?: string,
-    date?: { start: string, end: string }
-}
+// export interface EventObject extends Document {
+//     event_id?: number,
+//     title?: string,
+//     item?: string,
+//     description?: string,
+//     location?: { city: string, district: string },
+//     url?: string,
+//     date?: { start: string, end: string }
+// }
+
+let connection = createConnection().openUri(process.env.MONGO_URL)
+increment.initialize(connection)
 
 export module EventModel {
     /**
@@ -25,15 +29,15 @@ export module EventModel {
     */
     let eventSchema: Schema = new Schema ({
         event_id: Number,
-        title: String,
-        item: { name: String, price: Number },
-        description: String,
-        location: { city: String, district: String },
-        url: String,
-        date: { start: Date, end: Date }
+        title: {type: String, default: ''},
+        item: {type: String, default: ''},
+        description: {type: String, default: ''},
+        location: { city: {type: String, default: ''}, district: {type: String, default: ''} },
+        url: {type: String, default: ''},
+        date: { start: {type: Date, default: Date.now}, end: {type: Date, default: Date.now} }
     })
 
-    // eventSchema.plugin(increment.plugin, 'event_id')
+    eventSchema.plugin(increment.plugin, 'event_id')
 
-    export let event: Model<EventObject> = model<EventObject>('event', eventSchema)
+    export let event = model('Event', eventSchema)
 }

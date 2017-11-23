@@ -4,11 +4,13 @@
 
 ```
 TypeScript
+npm install -g typescript
 npm install -g typings
 
 Modules
 npm install
 typings install
+tsc --p tsconfig.json
 
 Env
 .env edit

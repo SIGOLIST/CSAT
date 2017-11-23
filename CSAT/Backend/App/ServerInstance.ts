@@ -8,11 +8,11 @@ dotenv.config({
 
 import * as express from 'express'
 
-let port: number = 3000
+let port = process.env.PORT
 
 let app: any = new Server().app
 
-app.set('port',port)
+app.set('port', port)
 app.listen(app.get('port'), () => {
     console.log(`Server listening on port ${port}`)
 }).on('error', err => {

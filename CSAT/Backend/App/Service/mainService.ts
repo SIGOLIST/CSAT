@@ -36,7 +36,8 @@ export class Server {
     }
 
     private connectMongo() {
-        let connect = () => mongoose.connect(process.env.MONGO_URL)
+        let connect = () => mongoose.createConnection().openUri(process.env.MONGO_URL)
+        mongoose.Promise = global.Promise
         mongoose.connection.on('disconnected', connect)
         mongoose.connection.on('error', err => {
             console.log('Mongo Error : ' + err)
