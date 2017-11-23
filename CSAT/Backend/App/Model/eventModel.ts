@@ -1,5 +1,8 @@
-import { Model, Document, model, Schema } from 'mongoose'
+import { Model, Document, model, Schema, createConnection } from 'mongoose'
 import * as increment from 'mongoose-auto-increment'
+
+// let connection = createConnection(process.env.MONGO_URL)
+// increment.initialize(connection)
 
 export interface EventObject extends Document {
     title?: string,
@@ -30,7 +33,7 @@ export module EventModel {
         date: { start: Date, end: Date }
     })
 
-    eventSchema.plugin(increment.plugin, 'event_id')
+    // eventSchema.plugin(increment.plugin, 'event_id')
 
     export let event: Model<EventObject> = model<EventObject>('event', eventSchema)
 }

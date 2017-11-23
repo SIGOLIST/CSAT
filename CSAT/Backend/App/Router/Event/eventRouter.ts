@@ -16,3 +16,5 @@ router.post('/', wrap(async (req, res) => {
     let create = EventAPI.create(params)
     res.json(create)
 }))
+
+export = router

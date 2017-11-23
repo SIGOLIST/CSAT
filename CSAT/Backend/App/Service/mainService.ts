@@ -5,6 +5,7 @@ import * as cookieParser from 'cookie-parser'
 import * as bodyParser from 'body-parser'
 import * as mongoose from 'mongoose'
 import * as session from 'express-session'
+// import * as increment from 'mongoose-auto-increment'
 
 /* Import Louter */
 import {Router} from './routerService'
