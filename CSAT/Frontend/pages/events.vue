@@ -1,29 +1,36 @@
 <template>
   <div class="container">
-    <transition name="list">    
+    <search class="search"/>
     <List/>
-    </transition>
     
   </div>
 </template>
 
 <script>
 import List from '~/components/list.vue'
+import Search from '~/components/search'
+
 export default {
-  components: { List },
+  components: { List, Search },
   transition: {
-    name: "list",
-    mode: "in-out"
+    name: 'events',
+    mode: 'out-in'
   }
 }
 </script>
 
-<style> 
-.list-enter-active, .list-leave-active {
-  transition: all 3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+<style lang="scss" scoped> 
+.events-leave {
+  animation: page-in 1s cubic-bezier(1,0,1,1);  
 }
-.list-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateY(100px);
-  opacity: 0
+
+.events-leave-active {
+  transition: all 1s cubic-bezier(1,0,1,1);  
+  animation: page-in 1s cubic-bezier(1,0,1,1);
 }
+@keyframes page-in {
+  0% { transform: translateY(0rem) }
+  100% { transform: translateY(-50%) }
+}
+
 </style>
