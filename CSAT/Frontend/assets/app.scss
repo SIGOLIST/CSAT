@@ -2,3 +2,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+.app {
+  height: 100vh;
+}
+.nuxt {
+  height: calc(100vh - 5rem)
+}

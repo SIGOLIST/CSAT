@@ -13,10 +13,13 @@
   "dependencies": {
     "@nuxtjs/axios": "^4.5.0",
     "buefy": "^0.6.1",
+    "file-loader": "^1.1.5",
     "node-sass": "^4.7.2",
     "nuxt": "^1.0.0-rc11",
     "sass-loader": "^6.0.6",
+    "url-loader": "^0.6.2",
     "vue": "^2.5.8",
+    "vue-infinite-loading": "^2.2.2",
     "vue-server-renderer": "^2.5.8",
     "vue-template-compiler": "^2.5.8"
   },
